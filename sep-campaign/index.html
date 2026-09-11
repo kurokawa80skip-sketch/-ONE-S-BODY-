@@ -440,6 +440,19 @@ body{padding-bottom:152px}
 .limit .limit-total{margin-top:16px;background:linear-gradient(135deg,#FFF3E4,#FFE7D2);border:1.5px solid #F2C6A2;border-radius:12px;padding:10px 12px;font-size:14px;font-weight:900;color:var(--ink)}.limit .limit-total b{font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;color:var(--o);margin:0 2px}
 .nofee{display:flex;align-items:center;justify-content:center;gap:8px;margin:16px auto 0;max-width:420px;background:#EAF7EF;border:1.5px solid #9AD9B4;border-radius:12px;padding:11px 14px}.nofee .nofee-ic{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#1FA463;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center}.nofee .nofee-tx{font-size:14px;font-weight:800;color:var(--dk)}.nofee .nofee-tx b{color:#1FA463;font-size:16px;font-weight:900}
 .fcta-line{max-width:640px;margin:8px auto 0}.fbtn2{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:linear-gradient(135deg,#26D467,#06B24C);color:#fff;font-weight:900;font-size:14px;padding:12px 8px;border-radius:12px;box-shadow:0 5px 14px rgba(6,199,85,.35);white-space:nowrap}.li-badge2{background:#fff;color:#06B24C;font-size:10px;font-weight:900;padding:3px 7px;border-radius:5px;letter-spacing:.03em;flex-shrink:0}.lt2{letter-spacing:.01em}@media(max-width:359px){.fbtn2{font-size:12.5px;padding:11px 6px;gap:6px}}</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1547395662993426');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1547395662993426&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZW8JL84V6C"></script>
 <script>
@@ -735,13 +748,16 @@ body{padding-bottom:152px}
   /* 予約・LINE タップ */
   document.addEventListener('click',function(e){
     var a=e.target.closest?e.target.closest('a[href]'):null;
-    if(!a||typeof gtag!=='function')return;
+    if(!a)return;
+    var ga=typeof gtag==='function', fb=typeof fbq==='function';
     var href=a.getAttribute('href')||'';
     var loc=a.getAttribute('data-cta')||'other';
     if(href.indexOf('onesbody.stores.jp')>-1){
-      gtag('event','reserve_click',{cta_location:loc});
+      if(ga)gtag('event','reserve_click',{cta_location:loc});
+      if(fb)fbq('track','Schedule',{content_name:loc});
     }else if(href.indexOf('line.me')>-1){
-      gtag('event','line_click',{cta_location:loc});
+      if(ga)gtag('event','line_click',{cta_location:loc});
+      if(fb)fbq('track','Contact',{content_name:'line_'+loc});
     }
   });
 })();
