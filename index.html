@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-<!-- BUILD v5 2026-09-25: 日本語Webフォント廃止(端末フォント) / Oswaldのみload後optional / webp外部化 / ヒーロー静止 / date削除 -->
+<!-- BUILD v6 2026-09-25: ヒーロー1枚目を<img fetchpriority=high>化 / 端末フォント / webp外部化 / date削除 -->
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -10,7 +10,7 @@
 <meta name="description" content="9/1グランドオープン記念キャンペーン開催中（9/1〜9/30）。初回体験0円・2回目FMS検査無料・初月月会費半額・入会金なし。最大25,700円お得。パーソナルジム ONE'S BODY 静岡安倍川店。"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="img/hero-1.webp">
+<link rel="preload" as="image" href="img/hero-1.webp" fetchpriority="high">
 <style>
 :root{--o:#E8521A;--c:#F5F0EB;--w:#FFFFFF;--t:#333;--m:#666;--l:#999;--lo:#FEF0E7;--bd:#E2D8D0;--dk:#2A1F17;--ln:#06C755;--f:'Noto Sans JP','Noto Sans CJK JP','Hiragino Sans','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -441,7 +441,8 @@ body{padding-bottom:152px}
 .limit .limit-total{margin-top:16px;background:linear-gradient(135deg,#FFF3E4,#FFE7D2);border:1.5px solid #F2C6A2;border-radius:12px;padding:10px 12px;font-size:14px;font-weight:900;color:var(--ink)}.limit .limit-total b{font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;color:var(--o);margin:0 2px}
 .nofee{display:flex;align-items:center;justify-content:center;gap:8px;margin:16px auto 0;max-width:420px;background:#EAF7EF;border:1.5px solid #9AD9B4;border-radius:12px;padding:11px 14px}.nofee .nofee-ic{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#1FA463;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center}.nofee .nofee-tx{font-size:14px;font-weight:800;color:var(--dk)}.nofee .nofee-tx b{color:#1FA463;font-size:16px;font-weight:900}
 .fcta-line{max-width:640px;margin:8px auto 0}.fbtn2{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:linear-gradient(135deg,#26D467,#06B24C);color:#fff;font-weight:900;font-size:14px;padding:12px 8px;border-radius:12px;box-shadow:0 5px 14px rgba(6,199,85,.35);white-space:nowrap}.li-badge2{background:#fff;color:#06B24C;font-size:10px;font-weight:900;padding:3px 7px;border-radius:5px;letter-spacing:.03em;flex-shrink:0}.lt2{letter-spacing:.01em}@media(max-width:359px){.fbtn2{font-size:12.5px;padding:11px 6px;gap:6px}}.xh3 .slides .s:first-child{animation:none!important;opacity:1!important}
-.xh3 .slides .s:not(:first-child){z-index:1}</style>
+.xh3 .slides .s:not(:first-child){z-index:1}
+.xh3 .slides img.s{width:100%;height:100%;max-width:none;object-fit:cover;object-position:center 30%}</style>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -478,7 +479,7 @@ src="https://www.facebook.com/tr?id=1547395662993426&ev=PageView&noscript=1"/></
 <!-- HERO -->
 <section class="xh xh3">
 <div class="stage">
-<div class="slides"><div class="s" style="background-image:url(img/hero-1.webp)"></div><div class="s" data-src="img/hero-2.webp"></div><div class="s" data-src="img/hero-3.webp"></div><div class="s" data-src="img/hero-4.webp"></div><div class="s" data-src="img/hero-5.webp"></div></div>
+<div class="slides"><img class="s" src="img/hero-1.webp" alt="" width="880" height="660" fetchpriority="high" decoding="async"><div class="s" data-src="img/hero-2.webp"></div><div class="s" data-src="img/hero-3.webp"></div><div class="s" data-src="img/hero-4.webp"></div><div class="s" data-src="img/hero-5.webp"></div></div>
 <div class="veil"></div>
 <div class="copy">
 <div class="eye"><span class="loc">9.1 GRAND OPEN ・ 静岡安倍川店</span></div>
